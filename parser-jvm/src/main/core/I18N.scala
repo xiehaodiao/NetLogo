@@ -11,7 +11,7 @@ object I18N {
 
   def available(locale: Locale) =
     try {
-      val rb = ResourceBundle.getBundle("Errors", locale, getClass.getClassLoader)
+      val rb = ResourceBundle.getBundle("i18n.Errors", locale, getClass.getClassLoader)
       // if there's a bundle with the right language, that's good enough.
       // don't worry if the country code doesn't match. - ST 10/31/11
       rb.getLocale.getLanguage == locale.getLanguage
@@ -78,6 +78,7 @@ object I18N {
           .getOrElse(
             throw new IllegalArgumentException(s"internal error, bad translation key: $key for $name"))
       }
+      println(s"text of $key is $preformattedText")
       java.text.MessageFormat.format(preformattedText, args: _*)
     }
     // internal use only
@@ -102,9 +103,9 @@ object I18N {
     override val fn = get _
   }
 
-  lazy val errors = new BundleKind("Errors")
+  lazy val errors = new BundleKind("i18n.Errors")
 
-  lazy val gui = new BundleKind("GUI_Strings")
+  lazy val gui = new BundleKind("i18n.GUI_Strings")
 
   // for easy use from Java
   def errorsJ: I18NJava = errors
