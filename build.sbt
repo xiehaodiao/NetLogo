@@ -40,7 +40,7 @@ lazy val jvmSettings = Seq(
   javaSource in Test      := baseDirectory.value / "src" / "test",
   publishArtifact in Test := true,
   javacOptions ++=
-    "-g -deprecation -encoding us-ascii -Werror -Xlint:all -Xlint:-serial -Xlint:-fallthrough -Xlint:-path -source 1.8 -target 1.8"
+    "-g -deprecation -encoding us-ascii -Werror -Xlint:all -Xlint:-serial -Xlint:-fallthrough -Xlint:-path -source 1.9 -target 1.9"
     .split(" ").toSeq
 )
 
@@ -138,7 +138,9 @@ lazy val netlogo = project.in(file("netlogo-gui")).
     threed := { System.setProperty("org.nlogo.is3d", "true") },
     nogen  := { System.setProperty("org.nlogo.noGenerator", "true") },
     libraryDependencies ++= Seq(
-      "org.ow2.asm" % "asm-all" % "5.0.4",
+      "org.ow2.asm" % "asm" % "6.0",
+      "org.ow2.asm" % "asm-commons" % "6.0",
+      "org.ow2.asm" % "asm-util" % "6.0",
       "org.picocontainer" % "picocontainer" % "2.13.6",
       "log4j" % "log4j" % "1.2.16",
       "javax.media" % "jmf" % "2.1.1e",
