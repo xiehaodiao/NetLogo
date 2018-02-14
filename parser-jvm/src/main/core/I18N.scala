@@ -78,7 +78,6 @@ object I18N {
           .getOrElse(
             throw new IllegalArgumentException(s"internal error, bad translation key: $key for $name"))
       }
-      println(s"text of $key is $preformattedText")
       java.text.MessageFormat.format(preformattedText, args: _*)
     }
     // internal use only

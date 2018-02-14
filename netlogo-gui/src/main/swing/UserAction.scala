@@ -62,13 +62,13 @@ object UserAction {
 
     def keystrokeChar(key: Char, withMenu: Boolean = false, withShift: Boolean = false): KeyStroke = {
       val mask: Int =
-        (if (withMenu) Toolkit.getDefaultToolkit.getMenuShortcutKeyMask else 0) | (if (withShift) InputEvent.SHIFT_MASK else 0)
+        (if (withMenu) Toolkit.getDefaultToolkit.getMenuShortcutKeyMask else 0) | (if (withShift) InputEvent.SHIFT_DOWN_MASK else 0)
       KeyStroke.getKeyStroke(Character.toUpperCase(key), mask)
     }
 
     def keystroke(key: Int, withMenu: Boolean = false, withShift: Boolean = false): KeyStroke = {
       val mask: Int =
-        (if (withMenu) Toolkit.getDefaultToolkit.getMenuShortcutKeyMask else 0) | (if (withShift) InputEvent.SHIFT_MASK else 0)
+        (if (withMenu) Toolkit.getDefaultToolkit.getMenuShortcutKeyMask else 0) | (if (withShift) InputEvent.SHIFT_DOWN_MASK else 0)
       KeyStroke.getKeyStroke(key, mask)
     }
   }
