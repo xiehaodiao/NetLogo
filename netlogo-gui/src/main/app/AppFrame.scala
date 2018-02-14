@@ -7,7 +7,8 @@ import java.awt.event.{WindowAdapter, WindowEvent}
 import javax.swing.{ JFrame, WindowConstants }
 
 import org.nlogo.api.Exceptions
-import org.nlogo.awt.{ FullScreenUtilities, Images, UserCancelException }
+import org.nlogo.awt.{ Images, UserCancelException }
+import org.nlogo.swing.FullScreenUtilities
 import org.nlogo.window.LinkRoot
 import org.nlogo.window.Event.LinkParent
 import org.nlogo.window.Events.IconifiedEvent
