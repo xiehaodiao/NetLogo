@@ -39,7 +39,8 @@ JJS=$JH/bin/jjs
 # Most of these settings are fine for everyone
 XSS=-Xss10m
 XMX=-Xmx2048m
-XX=-XX:+UseParallelGC
+# We use --illegal-access=permit until https://github.com/sbt/zinc/issues/459 is fixed
+XX="-XX:+UseParallelGC --illegal-access=permit"
 ENCODING=-Dfile.encoding=UTF-8
 HEADLESS=-Djava.awt.headless=true
 USE_QUARTZ=-Dapple.awt.graphics.UseQuartz=false
