@@ -1,0 +1,7 @@
+-J-Xss10m
+-J-Xmx2048m
+-J-XX:MaxMetaspaceSize=1024m
+-J-XX:+UseParallelGC
+-Dfile.encoding=UTF-8
+-Djava.awt.headless=true
+-Dapple.awt.graphics.UseQuartz=false
