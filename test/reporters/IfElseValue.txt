@@ -1,8 +1,8 @@
 IfelseReportT
-  ifelse-value (2 = 2) ["here"] ["there"] => "here"
+  ifelse-value 2 = 2 ["here"] ["there"] => "here"
 
 IfelseReportF
-  ifelse-value (2 = 3) ["here"] ["there"] => "there"
+  ifelse-value 2 = 3 ["here"] ["there"] => "there"
 
 Occurrences
   reduce [[x y] -> ifelse-value (y = 1) [x + 1] [x]] (fput 0 [1 2 1 3 1 2 3 1 1 4 5 1]) => 6
