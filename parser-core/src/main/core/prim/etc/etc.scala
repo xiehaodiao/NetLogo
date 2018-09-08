@@ -394,9 +394,10 @@ case class _ifelsevalue() extends Reporter with Pure {
     Syntax.reporterSyntax(
       right = List(
         Syntax.BooleanType,
-        Syntax.ReporterBlockType,
-        Syntax.ReporterBlockType),
+        Syntax.ReporterType,
+        Syntax.ReporterType | Syntax.BooleanType | Syntax.RepeatableType),
       ret = Syntax.WildcardType,
+      defaultOption = Some(3),
       precedence = Syntax.NormalPrecedence - 7)
 }
 case class _ignore() extends Command {
