@@ -386,8 +386,10 @@ case class _ifelse() extends Command {
     Syntax.commandSyntax(
       right = List(
         Syntax.BooleanType,
-        Syntax.CommandBlockType,
-        Syntax.CommandBlockType))
+        Syntax.CommandBlockType | Syntax.BooleanType | Syntax.RepeatableType ,
+        Syntax.CommandBlockType),
+      defaultOption = Some(3),
+      minimumOption = Some(2))
 }
 case class _ifelsevalue() extends Reporter with Pure {
   override def syntax =
