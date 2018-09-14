@@ -22,13 +22,13 @@ Ifelse-value-falls-through-to-else-block
   (ifelse-value false [ 1 ] false [ 2 ] [ 4 ]) => 4
 
 Ifelse-errors-with-no-true-conditions
-  O> __ignore (ifelse-value false [ 1 ] false [ 2 ]) => ERROR Extension exception: IFELSE-VALUE found no true conditions and no else branch. If you don't wish to error when no conditions are true, add a final else branch.
+  O> __ignore (ifelse-value false [ 1 ] false [ 2 ]) => ERROR IFELSE-VALUE found no true conditions and no else branch. If you don't wish to error when no conditions are true, add a final else branch.
 
 Ifelse-value-associates-smartly
   (ifelse-value 0 > 1 [ false ] 0 < 1 [ true ] [ nobody ]) => true
 
 Ifelse-value-gives-type-errors-in-variadic-position
-  O> __ignore (ifelse-value false [ 0 ] false [ 1 ] [ 3 ] [ 4 ] [ 5 ]) => ERROR IFELSE-VALUE expected input to be a TRUE/FALSE but got the anonymous reporter (anonymous reporter: [ 3 ]) instead.
+  O> __ignore (ifelse-value false [ 0 ] false [ 1 ] [ 3 ] [ 4 ] [ 5 ]) => ERROR IFELSE-VALUE expected input to be a TRUE/FALSE but got the number 3 instead.
 
 Ifelse-value-handles-prefix-predicates
   (ifelse-value any? links [ 0 ] any? turtles [ 1 ] any? patches [ 2 ]  [ 3 ]) => 2

@@ -12,13 +12,13 @@ final class _ifelsevalue extends Reporter with Pure {
     var i = 0
     while (i < args.length - 1) {
       if (argEvalBooleanValue(context, i)) {
-        return argEvalAnonymousReporter(context, i + 1).report(context, Array.empty[AnyRef])
+        return args(i + 1).report(context)
       }
       i += 2
     }
     if (i < args.length)
-      argEvalAnonymousReporter(context, args.length - 1).report(context, Array.empty[AnyRef])
+      args(args.length - 1).report(context)
     else
-      throw new RuntimePrimitiveException(context, this, "TODO")
+      throw new RuntimePrimitiveException(context, this, "IFELSE-VALUE found no true conditions and no else branch. If you don't wish to error when no conditions are true, add a final else branch.")
   }
 }
