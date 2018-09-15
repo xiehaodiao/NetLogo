@@ -70,7 +70,7 @@ private class Assembler {
     }
     def goTo(label: Int = 0): Unit = {
       val pos = code.size
-      val gt = new _goto(-9999) // Will be fixed in a moment or when `comeFrom` is called
+      val gt = new _goto // Will set offset in a moment or when `comeFrom` is called
       goTos.getOrElseUpdate(label, Buffer.empty[(Int, _goto)]).append(pos -> gt)
       labels.get(label).foreach(l => gt.offset = l - pos)
       add(gt)

@@ -12,6 +12,8 @@ import org.nlogo.nvm.{ Command, CustomAssembled, AssemblerAssistant }
 import org.nlogo.prim.{ _call, _done, _recursefast, _goto, _return, _returnreport }
 import org.nlogo.compile.api.{ CommandBlock, ProcedureDefinition, ReporterApp, Statement, Statements }
 
+import scala.collection.mutable.{Buffer, Map => MMap}
+
 /**
  * fills the code array of the Procedure object with Commands.
  */
@@ -69,7 +71,7 @@ private[compile] class Assembler {
     }
     def goTo(label: Int = 0): Unit = {
       val pos = code.size
-      val gt = new _goto(-9999) // Will be fixed in a moment or when `comeFrom` is called
+      val gt = new _goto // Will be fixed in a moment or when `comeFrom` is called
       goTos.getOrElseUpdate(label, Buffer.empty[(Int, _goto)]).append(pos -> gt)
       labels.get(label).foreach(l => gt.offset = l - pos)
       add(gt)
